@@ -4,12 +4,23 @@ You are given an m x n integer grid accounts where accounts[i][j] is the amount 
 A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth. */
 
 function maximumWealth(accounts: number[][]): number {
+  return Math.max(
+    ...accounts.map((account) =>
+      account.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      )
+    )
+  );
+}
+
+/* function maximumWealth(accounts: number[][]): number {
     let sum: number[] = [];
     for (var i = 0; i < accounts.length; i++) {
         sum.push(accounts[i].reduce((accumulator, currentValue) => accumulator + currentValue, 0));
     }
     return Math.max.apply(null, sum);
-};
+}; */
 
 console.log(
   maximumWealth([
