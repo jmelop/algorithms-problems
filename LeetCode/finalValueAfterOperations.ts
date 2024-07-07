@@ -13,15 +13,7 @@ Given an array of strings operations containing a list of operations, return the
  * @return {number}
  */
 function finalValueAfterOperations(operations: string[]): number {
-    let x = 0;
-  for (let operation of operations) {
-    if (operation === "++X" || operation === "X++") {
-      x += 1;
-    } else {
-      x -= 1;
-    }
-  }
-  return x;
+  return operations.reduce((accumulator, operation) => operation.includes("+") ? accumulator += 1 : accumulator -= 1, 0);
 };
 
 console.log(finalValueAfterOperations(["++X","++X","X++"]));
