@@ -4,7 +4,22 @@ Given two strings ransomNote and magazine, return true if ransomNote can be cons
 Each letter in magazine can only be used once in ransomNote.
  */
 
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
 function canConstruct(ransomNote: string, magazine: string): boolean {
+  for (const element of magazine) {
+    ransomNote = ransomNote.replace(element, "")
+  }
+
+  return ransomNote.length === 0;
+};
+
+console.log(canConstruct("aa", "aab"));
+
+/* function canConstruct(ransomNote: string, magazine: string): boolean {
   let map1 = new Map();
   let map2 = new Map();
 
@@ -23,6 +38,4 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
   }
 
   return true;
-};
-
-console.log(canConstruct("a", "b"));
+}; */
