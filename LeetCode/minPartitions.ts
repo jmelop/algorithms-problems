@@ -6,9 +6,22 @@ Given a string n that represents a positive decimal integer, return the minimum 
 function minPartitions(n: string): number {
   let maxValue = 0;
   for (var i = 0; i < n.length; i++) {
-    maxValue = Math.max(maxValue, Number(n[i]));
+    if (n[i] === "9") {
+      return 9;
+    }
+    if (maxValue < Number(n[i])) {
+      maxValue = Number(n[i]);
+    }
   }
   return maxValue;
 }
+
+/* function minPartitions(n: string): number {
+  let maxValue = 0;
+  for (var i = 0; i < n.length; i++) {
+    maxValue = Math.max(maxValue, Number(n[i]));
+  }
+  return maxValue;
+} */
 
 console.log(minPartitions("27346209830709182346"));
