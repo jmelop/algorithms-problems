@@ -4,7 +4,7 @@ Given an array of integers nums, return the number of good pairs.
 A pair (i, j) is called good if nums[i] == nums[j] and i < j.
  */
 
-function numJewelsInStones(jewels, stones) {
+function numJewelsInStones(jewels: string, stones: string): number {
   const map1 = new Map();
   let counter = 0;
 
