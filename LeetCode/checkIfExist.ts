@@ -6,6 +6,26 @@ i != j
 arr[i] == 2 * arr[j] */
 
 function checkIfExist(arr: number[]): boolean {
+  const doubleSet = new Set();
+  for (var i = 0; i < arr.length; i++) {
+    if (doubleSet.has(arr[i] * 2)) {
+      return true;
+    }
+
+    if (arr[i] % 2 === 0 && doubleSet.has(arr[i] / 2)) {
+      return true;
+    }
+
+    doubleSet.add(arr[i]);
+  }
+  return false;
+}
+
+console.log(checkIfExist([10, 2, 5, 3]));
+
+//Hashmap - Double loop
+
+/* function checkIfExist(arr: number[]): boolean {
   const map = new Map();
   for (var i = 0; i < arr.length; i++) {
     map.set(arr[i] * 2, i);
@@ -16,9 +36,9 @@ function checkIfExist(arr: number[]): boolean {
     }
   }
   return false;
-}
+} */
 
-console.log(checkIfExist([10, 2, 5, 3]));
+//Brute Force
 
 /* function checkIfExist(arr: number[]): boolean {
   for (var i = 0; i < arr.length; i++) {
